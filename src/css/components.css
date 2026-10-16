@@ -1,0 +1,9 @@
+@layer components {
+  .key {
+    @apply text-[rgb(122,122,122)] font-semibold text-[.9rem];
+  }
+
+  .value {
+    @apply text-[rgb(255,255,255)];
+  }
+}

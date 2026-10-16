@@ -1,32 +1,36 @@
 @import "tailwindcss";
-/*
-* {
-  outline: 1px solid red;
-}*/
+@import "./components.css";
 
+/* ==========================
+  Tema
+========================== */
+@theme {
+  --font-outfit: "Outfit", sans-serif; /* Fuente */
+
+  --breakpoint-tablet: 56.25rem; /* Responsive. 900px ÷ 16 = 56.25rem */
+}
+
+
+/* ==========================
+   Base
+========================== */
 @layer base {
 
   body {
-    @apply bg-fixed bg-linear-[-10deg] from-[#32118d] to-[#020e2e]; /* 0f0f0f */
+    @apply font-outfit bg-fixed bg-linear-[-10deg] from-[#000000] to-[#0e0e0e]; /* 0f0f0f */
   }
 
   html {
     scroll-behavior: smooth;
   }
 
-  /* SectionTitle */
   h1 {
-    @apply text-[#ffffff] font-bold text-[1.1rem] sm:text-[1.25rem];
-  }
-  /* CardTitle */
-  h2 {
-    @apply font-bold text-[#ffffff] text-[1.05rem];
-  }
-  /* CardTitleSecond */
-  h3 {
-    @apply font-bold text-[#ffffff] text-[1rem];
+    @apply text-[#ffffff] font-bold text-[1.4rem] mb-[18px];
   }
 
+  h2 {
+    @apply text-[#ffffff] font-bold text-[1.15rem];
+  }
 }
 
 @layer components {

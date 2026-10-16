@@ -1,0 +1,1 @@
+export { default as Dolar } from "./dolar/page/Dolar";

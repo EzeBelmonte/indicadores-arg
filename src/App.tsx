@@ -1,10 +1,12 @@
 import './css/App.css'
 
+import Dashboard from './page/Dashboard'
+
 function App() {
 
   return (
     <>
-      <h1>HOLA</h1>
+      <Dashboard />
     </>
   )
 }
