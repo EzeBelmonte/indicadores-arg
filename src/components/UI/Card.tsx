@@ -12,7 +12,7 @@ const Card = ({ children, onClick, className }: CardProps) => {
     <div 
       onClick={onClick}
       className={cn(
-        `w-full rounded p-3 
+        `w-full rounded p-3 bg-white/3
         backdrop-blur-xl border border-[#ffffff3b]`,
         className
       )}

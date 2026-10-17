@@ -7,6 +7,7 @@
 @theme {
   --font-outfit: "Outfit", sans-serif; /* Fuente */
 
+  --breakpoint-semitablet: 25rem; /* Responsive. 400px ÷ 16 = 25rem */
   --breakpoint-tablet: 56.25rem; /* Responsive. 900px ÷ 16 = 56.25rem */
 }
 
