@@ -1,41 +1,62 @@
 import { useState } from "react";
-import { useIsMobile } from "../hooks/useIsMobile";
+import { useIsMobile, useDolarApi } from "../hooks";
 
 import {
   Section,
   Card,
   Button
 } from "@/components";
+
 import { cn } from "@/utils/cn";
+import { formatPrice } from "@/helpers";
 
 const Dolar = () => {
+  // ==================== Estados
+  const {
+    data,
+    isPending,
+    error,
+  } = useDolarApi();
   const isMobile = useIsMobile();
   const [dropDown, setDropDown] = useState(false);
 
+
+  // ==================== Respuestas del hook
+  // Esperando la respuesta
+  if (isPending) {
+    return <p>Cargando...</p>
+  }
+
+  // En caso de error
+  if (error) {
+    return <p>Error: {error.message}</p>
+  }
+
+  // En caso de no haber datos
+  if (!data) {
+    return <p>No hay datos de los precios del dólar</p>
+  }
+
+
+  // ==================== Funciones y valores
   // Abrir o cerrar "Ver más"
   const handleOpen = () => {
     setDropDown((prev) => !prev);
   }
 
-  // Esto es momentaneo
-  const dolares = [
-    { nombre: "Oficial", compra: "$9999.99", venta: "$9999.99" },
-    { nombre: "Tarjeta", compra: "$9999.99", venta: "$9999.99" },
-    { nombre: "Cripto", compra: "$9999.99", venta: "$9999.99" },
-    { nombre: "Otros", compra: "$9999.99", venta: "$9999.99" },
-  ]
-
   const showAll = !isMobile || dropDown;
 
+
+  // ==================== Retorno
   return (
     <Section>
       <h1>Dólar</h1>
 
       <div className={cn(`
-          grid grid-cols-1 gap-3 semitablet:grid-cols-2 sm:grid-cols-3 md:grid-cols-4
+          grid grid-cols-1 gap-3 semitablet:grid-cols-2 md:grid-cols-3 lg:grid-cols-4
         `)}
       >
-        {dolares.map((dolar, index) => {
+        {data.map((dolar, index) => {
           const ocultar = index > 0 && !showAll;
 
           return (
@@ -47,15 +68,17 @@ const Dolar = () => {
               )}
             >
               <Card>
-                <h2 className="mb-2">{dolar.nombre}</h2>
-                <p>
-                  <span className="key">COMPRA:</span>{" "}
-                  <span className="value">{dolar.compra}</span>
-                </p>
-                <p>
-                  <span className="key">VENTA:</span>{" "}
-                  <span className="value">{dolar.venta}</span>
-                </p>
+                <h2 className="mb-3">{dolar.nombre}</h2>
+
+                <div className="flex justify-between items-baseline">
+                  <p className="key">COMPRA:</p>{" "}
+                  <p className="value">${formatPrice(dolar.compra)}</p>
+                </div>
+                
+                <div className="flex justify-between items-baseline">
+                  <p className="key">VENTA:</p>{" "}
+                  <p className="value">${formatPrice(dolar.venta)}</p>
+                </div>
               </Card>
             </div>
           );
