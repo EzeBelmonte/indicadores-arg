@@ -39,7 +39,7 @@ const Dolar = () => {
   }
 
 
-  // ==================== Funciones y valores
+  // ==================== Funciones y otros parámetros
   // Abrir o cerrar "Ver más"
   const handleOpen = () => {
     setDropDown((prev) => !prev);
