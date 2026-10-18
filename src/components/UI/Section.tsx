@@ -17,7 +17,7 @@ const Section = ({ children, className, id, onClick }: SectionProps) => {
       // scroll-mt-24 es el margen extra por el Navbar
       className={cn(
         `w-full mx-auto max-w-[1024px]
-        scroll-mt-24 p-2`,
+        scroll-mt-24 px-2 py-5`,
         className
       )}
       onClick={onClick}

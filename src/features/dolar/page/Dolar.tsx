@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useIsMobile, useDolarApi } from "../hooks";
+import { useIsMobile, useDolar } from "../hooks";
 
 import {
   Section,
@@ -10,13 +10,14 @@ import {
 import { cn } from "@/utils/cn";
 import { formatPrice } from "@/helpers";
 
+
 const Dolar = () => {
   // ==================== Estados
   const {
     data,
     isPending,
     error,
-  } = useDolarApi();
+  } = useDolar();
   const isMobile = useIsMobile();
   const [dropDown, setDropDown] = useState(false);
 
@@ -53,8 +54,8 @@ const Dolar = () => {
       <h1>Dólar</h1>
 
       <div className={cn(`
-          grid grid-cols-1 gap-3 semitablet:grid-cols-2 md:grid-cols-3 lg:grid-cols-4
-        `)}
+          grid grid-cols-1 gap-3 semitablet:grid-cols-2 md:grid-cols-3 lg:grid-cols-4`,
+        )}
       >
         {data.map((dolar, index) => {
           const ocultar = index > 0 && !showAll;
@@ -63,8 +64,10 @@ const Dolar = () => {
             <div
               key={dolar.nombre}
               className={cn(
-                "min-w-0",
-                ocultar && "hidden"
+                "min-w-0 overflow-hidden transition-all duration-200 ease-in-out",
+                ocultar
+                  ? "opacity-0 hidden"
+                  : "opacity-100"
               )}
             >
               <Card>

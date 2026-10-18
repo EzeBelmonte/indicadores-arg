@@ -1,12 +1,12 @@
 import { useQuery } from "@tanstack/react-query";
-import { getDolarApi } from "../services/dolarApi.service";
+import { getDolar } from "../services/dolar.service";
 
 
-export function useDolarApi() {
+export function useDolar() {
 
   return useQuery({
     queryKey: ["dolar"],
-    queryFn: getDolarApi,
+    queryFn: getDolar,
     refetchInterval: 60000,
   });
 

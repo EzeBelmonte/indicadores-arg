@@ -1,2 +1,2 @@
-export * from "./useDolarApi";
+export * from "./useDolar";
 export * from "./useIsMobile";
