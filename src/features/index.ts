@@ -1,2 +1,2 @@
-export { default as Dolar } from "./dolar/section/Dolar";
-export { default as Inflacion } from "./inflacion/section/Inflacion";
+export { default as DolarPage } from "./dolar/page/DolarPage";
+export { default as InflacionPage } from "./inflacion/page/InflacionPage";

@@ -1,15 +1,15 @@
 import {
-  Dolar,
-  Inflacion,
+  DolarPage,
+  InflacionPage,
 } from "../features";
 
 const Dashboard = () => {
 
   return (
-    <main className="w-full mx-auto px-2">
+    <main className="w-full max-w-[1000px] mx-auto px-2">
       
-      <Dolar />
-      <Inflacion />
+      <DolarPage />
+      <InflacionPage />
       
     </main>
   );

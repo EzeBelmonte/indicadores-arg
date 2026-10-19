@@ -12,3 +12,15 @@ export const getInflacionMensual = async (): Promise<InflacionData[]> => {
   return response;
 
 }
+
+
+export const getInflacionInteranual = async (): Promise<InflacionData[]> => {
+
+  const response = await apiFetcher<InflacionData[]>(
+    "/api/argentinaDatos.api?indice=inflacionInteranual",
+    "Error obteniendo la inflación interanual"
+  );
+
+  return response;
+
+}

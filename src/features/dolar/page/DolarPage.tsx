@@ -4,14 +4,15 @@ import { useIsMobile, useDolar } from "../hooks";
 import {
   Section,
   Card,
-  Button
+  Button,
+  ModalInfo,
 } from "@/components";
 
 import { cn } from "@/utils/cn";
 import { formatPrice } from "@/helpers";
 
 
-const Dolar = () => {
+const DolarPage = () => {
   // ==================== Estados
   const {
     data,
@@ -51,7 +52,13 @@ const Dolar = () => {
   // ==================== Retorno
   return (
     <Section>
-      <h1>Dólar</h1>
+      <div 
+        className="flex justify-between items-center"
+        title="Información sobre el dólar en Argentina"
+      >
+        <h1>Dólar</h1>
+        <ModalInfo />
+      </div>
 
       <div className={cn(`
           grid grid-cols-1 gap-3 semitablet:grid-cols-2 md:grid-cols-3 lg:grid-cols-4`,
@@ -91,7 +98,8 @@ const Dolar = () => {
       {isMobile && (
         <Button
           onClick={handleOpen}
-          className="text-blue-400 text-[.85rem] mt-2 ml-1"
+          className="text-blue-400 hover:text-blue-300 text-[.85rem] mt-2 ml-1 cursor-pointer"
+          title={dropDown ? "Ocultar" : "Ver precio de otros tipos de dólar"}
         >
           {dropDown ? "Ocultar" : "Ver más"}
         </Button>
@@ -100,4 +108,4 @@ const Dolar = () => {
   );
 }
 
-export default Dolar;
+export default DolarPage;

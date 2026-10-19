@@ -35,13 +35,13 @@ const InflacionCard = ({
         {showButton && (
           <Button
             onClick={onButtonClick}
-            className="text-blue-400 text-[.85rem] mt-2 ml-1"
+            className="text-blue-400 hover:text-blue-300 text-[.85rem] mt-2 ml-1 cursor-pointer"
           >
             {isOpen ? "Ocultar" : "Ver historial"}
           </Button>
         )}
 
-        <p className="text-gray-500 text-[.7rem] ml-auto">
+        <p className="text-gray-500 text-[.6rem] ml-auto">
           {fecha ? formatNormalDate(fecha) : "Sin fecha"}
         </p>
       </div>
