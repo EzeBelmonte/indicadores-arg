@@ -1,4 +1,4 @@
-export interface DolarData {
+export interface DollarData {
   compra: number,
   venta: number,
   casa: string,

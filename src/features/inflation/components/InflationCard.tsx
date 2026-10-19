@@ -1,12 +1,15 @@
 import { Card, Button } from "@/components";
 
-import { formatNormalDate, monthName } from "@/helpers";
+import { 
+  monthName,
+  yearOnly,
+} from "@/helpers";
 import { cn } from "@/utils/cn";
 
-import type { InflacionData } from "../types/inflacion.type";
+import type { InflationData } from "../types/inflation.type";
 
 type Props = {
-  item: InflacionData;
+  item: InflationData;
   showButton?: boolean;
   onButtonClick?: () => void;
   isOpen?: boolean;
@@ -15,7 +18,7 @@ type Props = {
 };
 
 
-const InflacionCard = ({
+const InflationCard = ({
   item,
   showButton = false,
   onButtonClick,
@@ -24,8 +27,6 @@ const InflacionCard = ({
   isSelected,
 }: Props) => {
   const fecha = item.fecha ?? "";
-
-
 
   return (
 
@@ -56,8 +57,8 @@ const InflacionCard = ({
           </Button>
         )}
 
-        <p className="text-gray-500 text-[.6rem] ml-auto">
-          {fecha ? formatNormalDate(fecha) : "Sin fecha"}
+        <p className="text-gray-300 text-[.7rem] ml-auto">
+          Año: {fecha ? yearOnly(fecha) : "Sin fecha"}
         </p>
       </div>
     </Card>
@@ -65,4 +66,4 @@ const InflacionCard = ({
   );
 }
 
-export default InflacionCard;
+export default InflationCard;

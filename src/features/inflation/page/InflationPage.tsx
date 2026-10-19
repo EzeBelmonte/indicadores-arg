@@ -1,14 +1,14 @@
 import { 
-  useInflacionMensual,
-  useInflacionInteranual,
+  useMonthlyInflation,
+  useYearOnYearInflation,
 } from "../hooks";
 
-import InflacionSection from "../components/InflacionSection";
+import InflacionSection from "../components/InflationSection";
 
-const InflacionPage = () => {
+const InflationPage = () => {
   // ==================== Estados
-  const ipcMensual = useInflacionMensual();
-  const ipcInteranual = useInflacionInteranual();
+  const ipcMensual = useMonthlyInflation();
+  const ipcInteranual = useYearOnYearInflation();
 
 
   
@@ -30,4 +30,4 @@ const InflacionPage = () => {
   );
 }
 
-export default InflacionPage;
+export default InflationPage;

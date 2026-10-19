@@ -1,2 +1,2 @@
-export * from "./useDolar";
+export * from "./useDollar";
 export * from "./useIsMobile";

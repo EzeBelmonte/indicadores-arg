@@ -1,19 +1,20 @@
 import { useState } from "react";
 
 import { Section, ModalInfo } from "@/components";
-import InflacionCard from "../components/InflacionCard";
+import InflacionCard from "./InflationCard";
 
 import { monthName } from "@/helpers";
 
-import type { InflacionData } from "../types/inflacion.type";
+import type { InflationData } from "../types/inflation.type";
 import type { UseQueryResult } from "@tanstack/react-query";
 
 type Props = {
-  dataQuery: UseQueryResult<InflacionData[], Error>;
+  dataQuery: UseQueryResult<InflationData[], Error>;
   title: string;
 }
 
-const InflacionSection = ({ 
+
+const InflationSection = ({ 
   dataQuery,
   title,
 }: Props) => {
@@ -59,11 +60,11 @@ const InflacionSection = ({
   }
 
   // Último dato de inflación
-  const ultimaInflacion = data?.at(-1);
-
+  const latestInflation = data?.at(-1);
   // Obtener el resto de los datos, excluyendo el último e invertir el orden
-  const datosInflacion = data?.slice(0, -1).reverse();
+  const otherInflation = data?.slice(0, -1).reverse();
   
+  // El título recibido lo formateamos a minúscula
   const formatterTitle = title.toLowerCase();
 
   return (
@@ -80,15 +81,15 @@ const InflacionSection = ({
 
       <div className="grid grid-cols-1 gap-3">
         {/* Tarjeta principal */}
-        {ultimaInflacion && (
+        {latestInflation && (
           <InflacionCard
-            item={ultimaInflacion}
+            item={latestInflation}
             showButton
             onButtonClick={handleOpen}
             isOpen={dropDown}
-            onClick={() => handleSelectMonth(ultimaInflacion.fecha)}
+            onClick={() => handleSelectMonth(latestInflation.fecha)}
             isSelected={
-              selectedMonth === monthName(ultimaInflacion.fecha) && dropDown
+              selectedMonth === monthName(latestInflation.fecha) && dropDown
             }
           />
         )}
@@ -96,7 +97,7 @@ const InflacionSection = ({
         {/* Historial */}
         {dropDown && (
           <div className="grid grid-cols-2 gap-3 lg:grid-cols-3">
-            {datosInflacion.map((item) => (
+            {otherInflation.map((item) => (
               <InflacionCard
                 key={item.fecha}
                 item={item}
@@ -114,4 +115,4 @@ const InflacionSection = ({
   );
 }
 
-export default InflacionSection;
+export default InflationSection;

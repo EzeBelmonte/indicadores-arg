@@ -1,2 +1,3 @@
-export { default as DolarPage } from "./dolar/page/DolarPage";
-export { default as InflacionPage } from "./inflacion/page/InflacionPage";
+export { default as DollarPage } from "./dollar/page/DollarPage";
+export { default as InflationPage } from "./inflation/page/InflationPage";
+export { default as CountryRisk } from "./countryRisk/page/CountryRisk";

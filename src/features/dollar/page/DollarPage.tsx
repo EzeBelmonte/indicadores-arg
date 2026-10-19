@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useIsMobile, useDolar } from "../hooks";
+import { useIsMobile, useDollar } from "../hooks";
 
 import {
   Section,
@@ -12,13 +12,13 @@ import { cn } from "@/utils/cn";
 import { formatPrice } from "@/helpers";
 
 
-const DolarPage = () => {
+const DollarPage = () => {
   // ==================== Estados
   const {
     data,
     isPending,
     error,
-  } = useDolar();
+  } = useDollar();
   const isMobile = useIsMobile();
   const [dropDown, setDropDown] = useState(false);
 
@@ -107,4 +107,4 @@ const DolarPage = () => {
   );
 }
 
-export default DolarPage;
+export default DollarPage;

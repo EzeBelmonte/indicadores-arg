@@ -18,3 +18,13 @@ export const monthName = (dateString: string): string => {
   }).format(date).toUpperCase();
 
 };
+
+// Devuelve el anio de la fecha
+export const yearOnly = (dateString: string): string => {
+
+  const date = new Date(dateString);
+
+  return new Intl.DateTimeFormat("es-AR", {
+    year: "numeric"
+  }).format(date);
+}

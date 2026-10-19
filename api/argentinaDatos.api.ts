@@ -5,7 +5,6 @@ import {
 } from "./sources/utils";
 
 
-
 export default async function handle(
   req: VercelRequest,
   res: VercelResponse,
@@ -13,15 +12,15 @@ export default async function handle(
   
   try {
 
-    const indice = req.query.indice;
+    const parameter = req.query.indice;
 
-    if (typeof indice !== "string" || !indice) {
+    if (typeof parameter !== "string" || !parameter) {
       return res.status(400).json({
-        error: "El parámetro indice es obligatorio",
+        error: "El parámetro es obligatorio",
       });
     }
     
-    const url = `https://api.argentinadatos.com/v1/finanzas/indices/${encodeURIComponent(indice)}`;
+    const url = `https://api.argentinadatos.com/v1/finanzas/indices/${encodeURIComponent(parameter)}`;
     const data = await fetchExternal(url, "Error consultando la API externa");
 
     // Validar los datos obtenidos
