@@ -54,10 +54,9 @@ const DolarPage = () => {
     <Section>
       <div 
         className="flex justify-between items-center"
-        title="Información sobre el dólar en Argentina"
       >
         <h1>Dólar</h1>
-        <ModalInfo />
+        <ModalInfo title="Información sobre el dólar en Argentina" />
       </div>
 
       <div className={cn(`
@@ -81,12 +80,12 @@ const DolarPage = () => {
                 <h2 className="mb-3">{dolar.nombre}</h2>
 
                 <div className="flex justify-between items-baseline">
-                  <p className="key">COMPRA:</p>{" "}
+                  <p className="key text-green-300">COMPRA:</p>{" "}
                   <p className="value">${formatPrice(dolar.compra)}</p>
                 </div>
                 
                 <div className="flex justify-between items-baseline">
-                  <p className="key">VENTA:</p>{" "}
+                  <p className="key text-red-300">VENTA:</p>{" "}
                   <p className="value">${formatPrice(dolar.venta)}</p>
                 </div>
               </Card>

@@ -3,6 +3,8 @@ import { useState } from "react";
 import { Section, ModalInfo } from "@/components";
 import InflacionCard from "../components/InflacionCard";
 
+import { monthName } from "@/helpers";
+
 import type { InflacionData } from "../types/inflacion.type";
 import type { UseQueryResult } from "@tanstack/react-query";
 
@@ -17,6 +19,7 @@ const InflacionSection = ({
 }: Props) => {
   // ==================== Estados
   const [dropDown, setDropDown] = useState(false);
+  const [selectedMonth, setSelectedMonth] = useState<string | null>(null);
   const { 
     data,
     isPending,
@@ -43,6 +46,16 @@ const InflacionSection = ({
   // Abrir o cerrar historial
   const handleOpen = () => {
     setDropDown((prev) => !prev);
+  }
+
+  const handleSelectMonth = (date: string) => {
+    const month = monthName(date);
+
+    if (month == selectedMonth) {
+      setSelectedMonth(null);
+    } else {
+      setSelectedMonth(month);
+    }
   }
 
   // Último dato de inflación
@@ -73,6 +86,10 @@ const InflacionSection = ({
             showButton
             onButtonClick={handleOpen}
             isOpen={dropDown}
+            onClick={() => handleSelectMonth(ultimaInflacion.fecha)}
+            isSelected={
+              selectedMonth === monthName(ultimaInflacion.fecha) && dropDown
+            }
           />
         )}
 
@@ -83,6 +100,10 @@ const InflacionSection = ({
               <InflacionCard
                 key={item.fecha}
                 item={item}
+                onClick={() => handleSelectMonth(item.fecha)}
+                isSelected={
+                  selectedMonth === monthName(item.fecha)
+                }
               />
             ))}
           </div>
