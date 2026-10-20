@@ -1,5 +1,7 @@
 import { Section, ModalInfo, Card } from "@/components";
 
+import { formatNormalDate } from "@/helpers";
+
 import type { BaseCountryRiskData } from "../types/countryRisk.type";
 import type { UseQueryResult } from "@tanstack/react-query";
 
@@ -36,6 +38,9 @@ const CountryRiskSection = ({
     return <p>No hay datos de los precios del dólar</p>
   }
 
+  // Verificamos si se recibio fecha o no
+  const fecha = data.fecha !== "" ? formatNormalDate(data.fecha) : "Cierre anterior";
+
   return (
 
     <Section>
@@ -47,8 +52,8 @@ const CountryRiskSection = ({
       </div>
 
       <Card className="flex flex-col justify-center items-center">
-        <p className="text-white text-[1.3rem]">
-          {data.fecha}
+        <p className="text-white">
+          {fecha}
         </p>
 
         <p className="text-cyan-600 text-[2.2rem] font-semibold">

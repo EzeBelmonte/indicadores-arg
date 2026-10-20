@@ -23,19 +23,9 @@ export default async function handle(
 
     let url = `https://api.argly.com.ar/v1/riesgo-pais`;
 
-    /*if (parameter !== undefined) {
-      if (typeof parameter !== "string" || !parameter.trim()) {
-        return res.status(400).json({
-          error: "El parámetro es obligatorio",
-        });
-      }
-      
-      url += `?${encodeURIComponent(parameter)}`;
-    }*/
-
-      if (parameter === "true") {
-        url += "?anterior=true";
-      }
+    if (parameter === "true") {
+      url += "?anterior=true";
+    }
 
     const response = await fetchExternal<CountryRiskData>(url, "Error consultando la API externa");
 
@@ -45,10 +35,39 @@ export default async function handle(
       });
     }
 
+    // Si quisiera mostrar las fechas del dia actual y el anterior:
+    // Como tanto para el riesgo país actual como para el dia anterior devuelve la misma fecha,
+    // si anterior = true le restamos un día
+    /*const formattedData = {
+      ultimo: response.data.ultimo,
+      fecha: (() => {
+        if (parameter !== "true") {
+          return response.data.fecha;
+        }
+
+        const [year, month, day] = response.data.fecha
+          .slice(0, 10)
+          .split("-")
+          .map(Number);
+
+        const fecha = new Date(Date.UTC(year, month - 1, day));
+        fecha.setUTCDate(fecha.getUTCDate() - 1);
+
+        return fecha.toISOString().slice(0, 10);
+      })(),
+    };*/
+
+    // Como solamente quiero mostrar la fecha del valor actual, lo hago de esta manera
     const formattedData = {
       ultimo: response.data.ultimo,
-      fecha: response.data.fecha,
-    };
+      fecha: (() => {
+        if (parameter !== "true") {
+          return response.data.fecha
+        }
+
+        return "";
+      })(),
+    }
 
     return sendResponse(res, formattedData);
 
