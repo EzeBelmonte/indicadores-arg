@@ -2,6 +2,7 @@ import {
   DollarPage,
   InflationPage,
   CountryRisk,
+  Poverty,
 } from "../features";
 
 const Dashboard = () => {
@@ -12,6 +13,8 @@ const Dashboard = () => {
       <DollarPage />
       <InflationPage />
       <CountryRisk />
+      <Poverty />
+
     </main>
   );
 }
