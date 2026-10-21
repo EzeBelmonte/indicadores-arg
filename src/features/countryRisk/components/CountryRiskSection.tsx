@@ -5,7 +5,7 @@ import {
 
 import { 
   Section,
-  ModalInfo
+  Information,
 } from "@/components";
 import CountryRiskCard from "./CountryRiskCard";
 
@@ -31,7 +31,7 @@ const CountryRiskSection = () => {
         className="flex justify-between items-center"
       >
         <h1>Riesgo país</h1>
-        <ModalInfo title="Información sobre el dólar en Argentina" />
+        <Information title="Información sobre el dólar en Argentina" />
       </div>
 
       <div className="grid grid-cols-1 gap-3 semitablet:grid-cols-2">

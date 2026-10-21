@@ -1,4 +1,7 @@
-import { Section, ModalInfo } from "@/components";
+import { 
+  Section,
+  Information, 
+} from "@/components";
 import PovertyCard from "./PovertyCard";
 
 import type { 
@@ -24,7 +27,7 @@ const PovertySection = ({
         className="flex justify-between items-center"
       >
         <h1>Pobreza</h1>
-        <ModalInfo title="Información sobre los datos de pobreza e indigencia" />
+        <Information title="Información sobre los datos de pobreza e indigencia" />
       </div>
 
       <div className="flex flex-col gap-3">

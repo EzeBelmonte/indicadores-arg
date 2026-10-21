@@ -5,7 +5,7 @@ import {
 
 import { 
   Section,
-  ModalInfo
+  Information,
 } from "@/components";
 import InflationMonthly from "./InflationMonthly";
 import InflationYearOnYear from "./InflationYearOnYear";
@@ -33,7 +33,7 @@ const InflationSection = () => {
         className="flex justify-between items-center"
       >
         <h1>Inflación</h1>
-        <ModalInfo 
+        <Information 
           title="Información sobre la inflación en Argentina"
         />
       </div>

@@ -1,6 +1,6 @@
 import {
   Section,
-  ModalInfo,
+  Information,
 } from "@/components";
 import WalletCard from "./WalletCard";
 
@@ -20,7 +20,7 @@ const WalletSecction = ({ data }: Props) => {
         className="flex justify-between items-center"
       >
         <h1>Billeteras</h1>
-        <ModalInfo title="Información sobre las billeteras" />
+        <Information title="Información sobre las billeteras" />
       </div>
 
       <div className="

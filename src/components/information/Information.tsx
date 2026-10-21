@@ -6,7 +6,7 @@ type Props = {
   title: string;
 }
 
-const ModalInfo = ({ title }: Props) => {
+const Information = ({ title }: Props) => {
 
   return (
 
@@ -22,4 +22,4 @@ const ModalInfo = ({ title }: Props) => {
   );
 }
 
-export default ModalInfo;
+export default Information;
