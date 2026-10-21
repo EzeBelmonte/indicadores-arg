@@ -15,6 +15,7 @@ type Props = {
   isOpen?: boolean;
   onClick?: () => void;
   isSelected?: boolean;
+  title?: string;
 };
 
 
@@ -25,6 +26,7 @@ const InflationCard = ({
   isOpen = false,
   onClick,
   isSelected,
+  title,
 }: Props) => {
   const fecha = item.fecha ?? "";
 
@@ -39,6 +41,7 @@ const InflationCard = ({
           : ""
       )}
     >
+      <h3 className="me-auto mb-4 text-white">{title}</h3>
       <p className="text-white text-[1.3rem]">
         {fecha ? monthName(fecha) : "Sin fecha"}
       </p>
