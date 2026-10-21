@@ -4,8 +4,8 @@ import { useIsMobile, useDollar } from "../hooks";
 import {
   Section,
   Button,
-  Information,
 } from "@/components";
+import DollarHeader from "./DollarHeader";
 import DollarCard from "./DollarCard";
 
 import { cn } from "@/utils/cn";
@@ -51,12 +51,7 @@ const DollarSection = () => {
   // ==================== Retorno
   return (
     <Section>
-      <div 
-        className="flex justify-between items-center"
-      >
-        <h1>Dólar</h1>
-        <Information title="Información sobre el dólar en Argentina" />
-      </div>
+      <DollarHeader />
 
       <div className="
         grid grid-cols-1 gap-3 semitablet:grid-cols-2 md:grid-cols-3 lg:grid-cols-4

@@ -1,15 +1,19 @@
 import { useState } from "react";
-import { Info } from "lucide-react";
+import { Info, X } from "lucide-react";
 
 import { Button } from "@/components";
 import ModalInfo from "./ModalInfo";
 
 type Props = {
   title: string;
+  children: React.ReactNode;
 }
 
 
-const Information = ({ title }: Props) => {
+const Information = ({ 
+  title,
+  children,
+}: Props) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -30,8 +34,22 @@ const Information = ({ title }: Props) => {
         onClose={() => setIsOpen(false)}
       >
         <div>
-          <h1>HOLA</h1>
+          <div className="mb-10 flex justify-between items-center">
+            <h2 className="text-black/80">INFORMACIÓN</h2>
+
+            <Button 
+              className="cursor-pointer"
+              onClick={() => setIsOpen(false)}
+            >
+              <X 
+                color="red"
+                size={20}
+              />
+            </Button>
+          </div>
+          {children}
         </div>
+        
       </ModalInfo>
 
     </>
