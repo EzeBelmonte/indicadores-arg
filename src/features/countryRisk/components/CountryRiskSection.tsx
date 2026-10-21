@@ -1,45 +1,28 @@
-import { Section, ModalInfo, Card } from "@/components";
+import {
+  useCountryRisk,
+  usePreviousCountryRisk,
+} from "../hooks";
 
-import { formatNormalDate } from "@/helpers";
-
-import type { BaseCountryRiskData } from "../types/countryRisk.type";
-import type { UseQueryResult } from "@tanstack/react-query";
-
-type Props = {
-  dataQuery: UseQueryResult<BaseCountryRiskData, Error>;
-  title: string;
-}
+import { 
+  Section,
+  ModalInfo
+} from "@/components";
+import CountryRiskCard from "./CountryRiskCard";
 
 
-const CountryRiskSection = ({
-  dataQuery,
-  title,
-}: Props) => {
+const CountryRiskSection = () => {
   // ==================== Estados
   const {
-    data,
-    isPending,
-    error
-  } = dataQuery;
+    data: currentRisk,
+    isPending: currentPending,
+    error: currentError,
+  } =  useCountryRisk();
 
-  // ==================== Respuestas del hook
-  // Esperando la respuesta
-  if (isPending) {
-    return <p>Cargando...</p>
-  }
-
-  // En caso de error
-  if (error) {
-    return <p>Error: {error.message}</p>
-  }
-
-  // En caso de no haber datos
-  if (!data) {
-    return <p>No hay datos de los precios del dólar</p>
-  }
-
-  // Verificamos si se recibio fecha o no
-  const fecha = data.fecha !== "" ? formatNormalDate(data.fecha) : "Cierre anterior";
+  const {
+    data: previousRisk,
+    isPending: previousPending,
+    error: previousError,
+  } =  usePreviousCountryRisk();
 
   return (
 
@@ -47,19 +30,38 @@ const CountryRiskSection = ({
       <div 
         className="flex justify-between items-center"
       >
-        <h1>{title}</h1>
+        <h1>Riesgo país</h1>
         <ModalInfo title="Información sobre el dólar en Argentina" />
       </div>
 
-      <Card className="flex flex-col justify-center items-center">
-        <p className="text-white">
-          {fecha}
-        </p>
+      <div className="grid grid-cols-1 gap-3 semitablet:grid-cols-2">
+        {/* Riesgo país actual */}
+        <div>
+          {currentPending && <p>Cargando...</p> }
+          {currentError && <p>Error: currentError.message</p>}
+          {!currentRisk 
+            ? ( <p>No hay datos actuales del riesgo país</p> )
+            : (
+              <CountryRiskCard
+                data={currentRisk}
+              />
+          )}
+        </div>
 
-        <p className="text-cyan-600 text-[2.2rem] font-semibold">
-          {data.ultimo}
-        </p>
-      </Card>
+        {/* Riesgo país día anterior */}
+        <div>
+          {previousPending && <p>Cargando...</p> }
+          {previousError && <p>Error: previousError.message</p>}
+          {!previousRisk 
+            ? ( <p>No hay datos actuales del riesgo país</p> )
+            : (
+              <CountryRiskCard
+                data={previousRisk}
+              />
+          )}
+        </div>
+      </div>
+
     </Section>
 
   );

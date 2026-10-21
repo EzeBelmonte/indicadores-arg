@@ -28,21 +28,10 @@ const PovertyPage = () => {
   }
 
   return (
-    <>
-      <PovertySection 
-        data={data.poverty}
-        title="Pobreza"
-        semester={data.semester}
-        year={data.year}
-      />
-      
-      <PovertySection 
-        data={data.indigence}
-        title="Indigencia"
-        semester={data.semester}
-        year={data.year}
-      />
-    </>
+
+    <PovertySection 
+      data={data}
+    />
   );
 }
 

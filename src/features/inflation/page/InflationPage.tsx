@@ -10,9 +10,6 @@ const InflationPage = () => {
   const ipcMensual = useMonthlyInflation();
   const ipcInteranual = useYearOnYearInflation();
 
-
-  
-
   return (
 
     <div className="grid grid-cols-1 semitablet:grid-cols-2 semitablet:gap-7">

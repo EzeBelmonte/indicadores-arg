@@ -1,26 +1,21 @@
-import { Section, ModalInfo, Card } from "@/components";
+import { Section, ModalInfo } from "@/components";
+import PovertyCard from "./PovertyCard";
 
 import type { 
-  PovertyIndicator,
+  PovertyData,
 } from "../types/poverty.type";
 
 type Props = {
-  data: PovertyIndicator;
-  title: string;
-  semester: number;
-  year: number;
+  data: PovertyData;
 }
 
 
 const PovertySection = ({
   data,
-  title,
-  semester,
-  year,
 }: Props) => {
 
-  let semestre = semester == 1 ? "Primer" : "Segundo";
-  semestre += ` semestre de ${year}`;
+  let semester = data.semester == 1 ? "Primer" : "Segundo";
+  semester += ` semestre de ${data.year}`;
 
   return (
 
@@ -28,31 +23,23 @@ const PovertySection = ({
       <div 
         className="flex justify-between items-center"
       >
-        <h1>{title}</h1>
-        <ModalInfo title={`Información sobre los datos de ${title.toLocaleLowerCase()}`} />
+        <h1>Pobreza</h1>
+        <ModalInfo title="Información sobre los datos de pobreza e indigencia" />
       </div>
 
-      <Card className="flex flex-col gap-5 justify-around items-center semitablet:flex-row">
-        <div className="flex flex-col items-center">
-          <h2>Hogares bajo la línea de {title.toLowerCase()}</h2>
+      <div className="flex flex-col gap-3">
+        <PovertyCard 
+          data={data.poverty}
+          title="Pobreza"
+          semester={semester}
+        />
 
-          <p className="text-cyan-600 text-[2.2rem] font-semibold my-3">
-            {data.households}%
-          </p>
-
-          <p className="text-white text-[.85rem]">{semestre}</p>
-        </div>
-
-        <div className="flex flex-col items-center">
-          <h2>Población bajo la línea de {title.toLowerCase()}</h2> 
-
-          <p className="text-cyan-600 text-[2.2rem] font-semibold my-3">
-            {data.persons}%
-          </p>
-
-          <p className="text-white text-[.85rem]">{semestre}</p>
-        </div>
-      </Card>
+        <PovertyCard 
+          data={data.indigence}
+          title="Indigencia"
+          semester={semester}
+        />
+      </div>
     </Section>
 
   );
