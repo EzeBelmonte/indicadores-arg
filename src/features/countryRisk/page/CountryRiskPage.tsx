@@ -5,7 +5,7 @@ import {
   usePreviousCountryRisk,
 } from "../hooks";
 
-const CountryRisk = () => {
+const CountryRiskPage = () => {
   // ==================== Estados
     const countryRisk = useCountryRisk();
     const previousCountryRisk = usePreviousCountryRisk();
@@ -27,4 +27,4 @@ const CountryRisk = () => {
   );
 }
 
-export default CountryRisk;
+export default CountryRiskPage;

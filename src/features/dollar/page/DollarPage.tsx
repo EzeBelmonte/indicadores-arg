@@ -59,10 +59,9 @@ const DollarPage = () => {
         <ModalInfo title="Información sobre el dólar en Argentina" />
       </div>
 
-      <div className={cn(`
-          grid grid-cols-1 gap-3 semitablet:grid-cols-2 md:grid-cols-3 lg:grid-cols-4`,
-        )}
-      >
+      <div className="
+        grid grid-cols-1 gap-3 semitablet:grid-cols-2 md:grid-cols-3 lg:grid-cols-4
+      ">
         {data.map((dolar, index) => {
           const ocultar = index > 0 && !showAll;
 

@@ -3,7 +3,7 @@ import { usePoverty } from "../hooks/usePoverty";
 import PovertySection from "../components/PovertySection";
 
 
-const Poverty = () => {
+const PovertyPage = () => {
   // ==================== Estados
   const {
     data,
@@ -46,4 +46,4 @@ const Poverty = () => {
   );
 }
 
-export default Poverty;
+export default PovertyPage;
