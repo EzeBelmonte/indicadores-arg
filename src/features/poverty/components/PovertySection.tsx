@@ -1,7 +1,7 @@
 import { 
   Section,
-  Information, 
 } from "@/components";
+import PovertyHeader from "./PovertyHeader";
 import PovertyCard from "./PovertyCard";
 
 import type { 
@@ -23,12 +23,7 @@ const PovertySection = ({
   return (
 
     <Section>
-      <div 
-        className="flex justify-between items-center"
-      >
-        <h1>Pobreza</h1>
-        <Information title="Información sobre los datos de pobreza e indigencia" />
-      </div>
+      <PovertyHeader />
 
       <div className="flex flex-col gap-3">
         <PovertyCard 
