@@ -5,8 +5,8 @@ import {
 
 import { 
   Section,
-  Information,
 } from "@/components";
+import InflationHeader from "./InflationHeader";
 import InflationMonthly from "./InflationMonthly";
 import InflationYearOnYear from "./InflationYearOnYear";
 
@@ -29,14 +29,7 @@ const InflationSection = () => {
   return (
 
     <Section>
-      <div 
-        className="flex justify-between items-center"
-      >
-        <h1>Inflación</h1>
-        <Information 
-          title="Información sobre la inflación en Argentina"
-        />
-      </div>
+      <InflationHeader />
 
       <div className="grid grid-cols-1 gap-3 semitablet:grid-cols-2">
         {/* Riesgo país actual */}
