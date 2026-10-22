@@ -5,8 +5,8 @@ import {
 
 import { 
   Section,
-  Information,
 } from "@/components";
+import CountryRiskHeader from "./CountryRiskHeader";
 import CountryRiskCard from "./CountryRiskCard";
 
 
@@ -27,12 +27,7 @@ const CountryRiskSection = () => {
   return (
 
     <Section>
-      <div 
-        className="flex justify-between items-center"
-      >
-        <h1>Riesgo país</h1>
-        <Information title="Información sobre el dólar en Argentina" />
-      </div>
+      <CountryRiskHeader />
 
       <div className="grid grid-cols-1 gap-3 semitablet:grid-cols-2">
         {/* Riesgo país actual */}
