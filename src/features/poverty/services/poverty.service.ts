@@ -5,7 +5,7 @@ import { apiFetcher } from "@/lib/apiFetcher";
 export const getPoverty = async (): Promise<PovertyData> => {
 
   const response = await apiFetcher<PovertyData>(
-    "/api/argenStats.api",
+    "/api/argenStatsPoverty.api",
     "Error obteniendo datos de pobreza"
   );
 
