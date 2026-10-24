@@ -16,7 +16,7 @@ const Dashboard = () => {
       <CountryRiskPage />
       <PovertyPage />
       <WalletPage />
-
+      
     </main>
   );
 }

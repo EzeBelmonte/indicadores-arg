@@ -50,7 +50,7 @@ const InflationSection = () => {
           {yearOnYearPending && <p>Cargando...</p> }
           {yearOnYearError && <p>Error: yearOnYearError.message</p>}
           {!yearOnYearInflation 
-            ? ( <p>No hay datos actuales del riesgo país</p> )
+            ? ( <p>No hay datos actuales de la inflación interanual</p> )
             : (
               <InflationYearOnYear
                 data={yearOnYearInflation}
