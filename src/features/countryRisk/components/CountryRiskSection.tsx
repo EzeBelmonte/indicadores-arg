@@ -26,7 +26,7 @@ const CountryRiskSection = () => {
 
   return (
 
-    <Section>
+    <Section id="riesgo-pais">
       <CountryRiskHeader />
 
       <div className="grid grid-cols-1 gap-3 semitablet:grid-cols-2">

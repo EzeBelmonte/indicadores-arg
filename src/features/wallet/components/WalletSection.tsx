@@ -33,7 +33,7 @@ const WalletSecction = () => {
 
   return (
 
-    <Section>
+    <Section id="billeteras">
       <WalletHeader />
 
       <div className="

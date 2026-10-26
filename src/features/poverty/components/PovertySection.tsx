@@ -37,7 +37,7 @@ const PovertySection = () => {
 
   return (
 
-    <Section>
+    <Section id="pobreza">
       <PovertyHeader />
 
       <div className="flex flex-col gap-3">

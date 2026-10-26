@@ -9,7 +9,7 @@ import {
 const Dashboard = () => {
 
   return (
-    <main className="w-full max-w-[1000px] mx-auto px-2">
+    <main className="w-full max-w-[1000px] mx-auto my-10 px-2">
       
       <DollarPage />
       <InflationPage />

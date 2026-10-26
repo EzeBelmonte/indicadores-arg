@@ -28,7 +28,7 @@ const InflationSection = () => {
 
   return (
 
-    <Section>
+    <Section id="ipc">
       <InflationHeader />
 
       <div className="grid grid-cols-1 gap-3 semitablet:grid-cols-2">

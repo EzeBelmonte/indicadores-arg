@@ -50,7 +50,7 @@ const DollarSection = () => {
 
   // ==================== Retorno
   return (
-    <Section>
+    <Section id="dolar">
       <DollarHeader />
 
       <div className="

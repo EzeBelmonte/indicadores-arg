@@ -1,13 +1,24 @@
 import './css/App.css'
 
-import Dashboard from './page/Dashboard'
+import {
+  Buttonbar,
+  Navbar,
+  Dashboard,
+  Footer,
+} from "./layout";
 
 function App() {
 
   return (
-    <>
+    <div className="w-full min-h-screen">
+      <Buttonbar />
+
+      <Navbar />
+
       <Dashboard />
-    </>
+    
+      <Footer />
+    </div>
   )
 }
 
